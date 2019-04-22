@@ -21,7 +21,7 @@ void loop() {
   actualTime=millis();
   randomSeed(actualTime);
   if (sensorState == LOW) {
-    if (actualTime  - startTime > 999 ) {
+    if (actualTime - startTime > 999 ) {
       startTime = actualTime;
       seconds ++;
       if (seconds > 10) {
@@ -43,7 +43,7 @@ void loop() {
   else {  
     int t=400;
     int f=2000;
-    for (int n=0;n<=6;n++){
+    for (int n=0; n<=6; n++){
       tone(5, f);
       dice1 = random(1,7);
       dice2 = random(1,7);
@@ -59,7 +59,7 @@ void loop() {
     dice1 = random(1,7);
     dice2 = random(1,7);
     tone(5, 800,500);
-    for(int k=0;k<32000;k++) {
+    for(int k=0; k<32000; k++) {
       for (int i=0; i<=7; i++) {
         all_Input();
         ShowDice(i);
@@ -81,10 +81,10 @@ void all_Input () {
 void go_to_sleep() {
   all_Input();
   sleep();
-  seconds=0;
+  seconds = 0;
   startTime = millis();
   sensorState = LOW;
-  for(int k=0;k<10000;k++) {
+  for(int k=0; k<10000; k++) {
     dice1 = 1;
     dice2 = 1;
     for (int i=0; i<=7; i++) {
@@ -117,25 +117,25 @@ void ShowDice(int group) {
   case 0:
     if (dice1 == 1 || dice1 == 3 || dice1 == 5) {
       pinMode(0, OUTPUT);
-      digitalWrite(0,HIGH);
+      digitalWrite(0, HIGH);
     }     
     break;
   case 1:
     if (dice1 == 2 || dice1 == 3 || dice1 == 4 || dice1 == 5 || dice1 == 6) {
       pinMode(0, OUTPUT);
-      digitalWrite(0,LOW);
+      digitalWrite(0, LOW);
     }     
     break;
   case 2:   
     if (dice1 == 4 || dice1 == 5 || dice1 == 6) {
       pinMode(1, OUTPUT);
-      digitalWrite(1,HIGH);
+      digitalWrite(1, HIGH);
     }     
     break;
   case 3:
     if (dice1 == 6) {
       pinMode(1, OUTPUT);
-      digitalWrite(1,LOW);
+      digitalWrite(1, LOW);
     }     
     break;
 
@@ -143,25 +143,25 @@ void ShowDice(int group) {
   case 4:
     if (dice2 == 1 || dice2 == 3 || dice2 == 5) {
       pinMode(2, OUTPUT);
-      digitalWrite(2,HIGH);
+      digitalWrite(2, HIGH);
     }     
     break;
   case 5:
     if (dice2 == 2 || dice2 == 3 || dice2 == 4 || dice2 == 5 || dice2 == 6) {
       pinMode(2, OUTPUT);
-      digitalWrite(2,LOW);
+      digitalWrite(2, LOW);
     }     
     break;
   case 6:   
     if (dice2 == 4 || dice2 == 5 || dice2 == 6) {
       pinMode(4, OUTPUT);
-      digitalWrite(4,HIGH);
+      digitalWrite(4, HIGH);
     }     
     break;
   case 7:
     if (dice2 == 6) {
       pinMode(4, OUTPUT);
-      digitalWrite(4,LOW);
+      digitalWrite(4, LOW);
     }     
     break;
   }
